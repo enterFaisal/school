@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stadiums</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      /* Stadiums Page Specific Styles */
+      .stadiums-section {
+        padding: 40px 20px;
+        text-align: center; /* Centered by default unless overridden */
+      }
+
+      .stadiums-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .stadium-card {
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .stadium-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .stadium-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: 0 80%; /* Add this line to apply to all images */
+      }
+
+      .stadium-card .card-content {
+        padding: 20px;
+      }
+
+      .stadium-card h3 {
+        color: #e85d8c;
+        margin-bottom: 10px;
+      }
+
+      .stadium-card p {
+        margin-bottom: 15px;
+      }
+
+      .new-indicator {
+        background: #e85d8c;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 3px;
+        font-size: 0.8em;
+        margin-left: 5px;
+      }
+
+      .city-section {
+        margin-bottom: 40px;
+      }
+
+      .city-heading {
+        color: #333;
+        margin-bottom: 20px;
+        text-align: left;
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/45/Emblem_of_Saudi_Arabia_%282%29.svg"
+            alt="Soccer Ball Logo"
+          />
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/world-cup-essentials.html">World Cup Essentials</a></li>
+          <li><a href="/tourism.html">Tourism</a></li>
+          <li><a href="/stadiums.html" class="active">Stadiums</a></li>
+          <li><a href="/accommodations.html">Accommodations</a></li>
+          <li><a href="/services.html">Nearby Services</a></li>
+          <li><a href="/about.html">About Us</a></li>
+        </ul>
+        <div class="lang-support">
+          <div class="language-selector">
+            <button id="languageBtn">
+              <span>العربية</span>
+            </button>
+          </div>
+          <div class="support">
+            <button id="helpButton">
+              <i class="fas fa-headset"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="stadiums-section">
+        <h2>Saudi Arabia World Cup 2034 Stadiums</h2>
+
+        <!-- Riyadh Stadiums -->
+        <div class="city-section">
+          <h2 class="city-heading">Riyadh</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/King-Salman-International-Stadium-1-scaled.jpg"
+                alt="King Salman International Stadium"
+              />
+              <div class="card-content">
+                <h3>
+                  King Salman International Stadium<span class="new-indicator"
+                    >New</span
+                  >
+                </h3>
+                <p>Location: Riyadh</p>
+                <p>Capacity: 92,000</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/King-Fahad-Sports-City-Stadium-1-scaled.jpg"
+                alt="King Fahd Sports City Stadium"
+              />
+              <div class="card-content">
+                <h3>King Fahd Sports City Stadium</h3>
+                <p>Location: Riyadh</p>
+                <p>Capacity: 70,000</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/South-Riyadh-Stadium-1-scaled.jpeg"
+                alt="South Riyadh Stadium"
+              />
+              <div class="card-content">
+                <h3>
+                  South Riyadh Stadium<span class="new-indicator">New</span>
+                </h3>
+                <p>Location: Riyadh</p>
+                <p>Capacity: 47,060</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/Prince-Mohammed-bin-Salman-Stadium-1-scaled.jpg"
+                alt="Prince Mohammed bin Salman Stadium"
+              />
+              <div class="card-content">
+                <h3>
+                  Prince Mohammed bin Salman Stadium<span class="new-indicator"
+                    >New</span
+                  >
+                </h3>
+                <p>Location: Riyadh</p>
+                <p>Capacity: 46,979</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/Prince-Faisal-bin-Fahad-Sports-City-Stadium-1-scaled.jpg"
+                alt="Prince Faisal bin Fahd Sports City Stadium"
+              />
+              <div class="card-content">
+                <h3>Prince Faisal bin Fahd Sports City Stadium</h3>
+                <p>Location: Riyadh</p>
+                <p>Capacity: 46,865</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/King-Saud-University-Stadium-1.png"
+                alt="King Saud University Stadium"
+              />
+              <div class="card-content">
+                <h3>King Saud University Stadium</h3>
+                <p>Location: Riyadh</p>
+                <p>Capacity: 46,319</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/New-Murabba-Stadium-1-scaled.jpg"
+                alt="New Murabba Stadium"
+              />
+              <div class="card-content">
+                <h3>
+                  New Murabba Stadium<span class="new-indicator">New</span>
+                </h3>
+                <p>Location: Riyadh</p>
+                <p>Capacity: 46,010</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/ROSHN-Stadium-1-scaled.jpg"
+                alt="Roshn Stadium"
+              />
+              <div class="card-content">
+                <h3>Roshn Stadium<span class="new-indicator">New</span></h3>
+                <p>Location: Riyadh</p>
+                <p>Capacity: 46,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jeddah Stadiums -->
+        <div class="city-section">
+          <h2 class="city-heading">Jeddah</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/King-Abdullah-Sports-City-Stadium-1-scaled.jpg"
+                alt="King Abdullah Sports City Stadium"
+              />
+              <div class="card-content">
+                <h3>King Abdullah Sports City Stadium</h3>
+                <p>Location: Jeddah</p>
+                <p>Capacity: 58,432</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/JCD-1-scaled.jpeg"
+                alt="Jeddah Central Development Stadium"
+              />
+              <div class="card-content">
+                <h3>
+                  Jeddah Central Development Stadium<span class="new-indicator"
+                    >New</span
+                  >
+                </h3>
+                <p>Location: Jeddah</p>
+                <p>Capacity: 45,794</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Cities -->
+        <div class="city-section">
+          <h2 class="city-heading">Abha</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/King-Khalid-University-Stadium-1-scaled.jpeg"
+                alt="King Khalid University Stadium"
+              />
+              <div class="card-content">
+                <h3>
+                  King Khalid University Stadium<span class="new-indicator"
+                    >New</span
+                  >
+                </h3>
+                <p>Location: Abha</p>
+                <p>Capacity: 45,428</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="city-section">
+          <h2 class="city-heading">Qiddiya</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/Qiddiya-Coast-Stadium-1-scaled.jpeg"
+                alt="Coast Stadium"
+              />
+              <div class="card-content">
+                <h3>Coast Stadium<span class="new-indicator">New</span></h3>
+                <p>Location: Qiddiya</p>
+                <p>Capacity: 46,096</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="city-section">
+          <h2 class="city-heading">King Abdullah Economic City</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/King-Abdullah-Economic-City-1-scaled.jpg"
+                alt="King Abdullah Economic City Stadium"
+              />
+              <div class="card-content">
+                <h3>
+                  King Abdullah Economic City Stadium<span class="new-indicator"
+                    >New</span
+                  >
+                </h3>
+                <p>Location: King Abdullah Economic City</p>
+                <p>Capacity: 45,700</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="city-section">
+          <h2 class="city-heading">Khobar</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/Aramco-1-scaled.jpg"
+                alt="Aramco Stadium"
+              />
+              <div class="card-content">
+                <h3>Aramco Stadium<span class="new-indicator">New</span></h3>
+                <p>Location: Khobar</p>
+                <p>Capacity: 46,096</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="city-section">
+          <h2 class="city-heading">Neom</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/NEOM-1-scaled.jpg"
+                alt="Neom Stadium"
+              />
+              <div class="card-content">
+                <h3>Neom Stadium<span class="new-indicator">New</span></h3>
+                <p>Location: Neom</p>
+                <p>Capacity: 46,010</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <!-- Footer content (can be same as homepage) -->
+      <p>© 2024 World Cup & Saudi Arabia. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

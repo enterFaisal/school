@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الإقامات</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <style>
+      .accommodations-section {
+        padding: 40px 20px;
+      }
+
+      .filters {
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+
+      .filter-group {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .filter-item {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .filter-item select,
+      .filter-item input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .hotels-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .hotel-card {
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .hotel-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .hotel-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .hotel-info {
+        padding: 20px;
+      }
+
+      .hotel-name {
+        color: #e85d8c;
+        margin-bottom: 10px;
+      }
+
+      .hotel-rating {
+        color: #ffd700;
+        margin-bottom: 10px;
+      }
+
+      .hotel-price {
+        font-size: 1.2em;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .book-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #e85d8c;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+
+      .book-btn:hover {
+        background: #d14776;
+      }
+
+      .amenities {
+        display: flex;
+        gap: 10px;
+        margin: 10px 0;
+        flex-wrap: wrap;
+      }
+
+      .amenity {
+        font-size: 0.9em;
+        color: #666;
+        background: #f5f5f5;
+        padding: 5px 10px;
+        border-radius: 15px;
+      }
+
+      .info-section {
+        background: #f8f9fa;
+        padding: 40px 20px;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .info-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .info-section h2 {
+        color: #e85d8c;
+        margin-bottom: 20px;
+      }
+
+      .info-section p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+
+      .info-highlights {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+
+      .info-highlight {
+        flex: 1;
+        min-width: 200px;
+        max-width: 300px;
+        padding: 20px;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .info-highlight i {
+        color: #e85d8c;
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/45/Emblem_of_Saudi_Arabia_%282%29.svg"
+            alt="الشعار"
+          />
+        </div>
+        <ul class="nav-links">
+          <li><a href="/index_ar.html">الرئيسية</a></li>
+
+          <li>
+            <a href="/world-cup-essentials_ar.html">أساسيات كأس العالم</a>
+          </li>
+          <li><a href="/tourism_ar.html">السياحة</a></li>
+          <li><a href="/stadiums_ar.html" class="active">الاستاد</a></li>
+          <li><a href="/accommodations_ar.html">الإقامة</a></li>
+          <li><a href="/services_ar.html">الخدمات القريبة</a></li>
+          <li><a href="/about_ar.html">معلومات عنا</a></li>
+        </ul>
+        <div class="lang-support">
+          <div class="language-selector">
+            <button id="languageBtn"><span>EN</span></button>
+          </div>
+          <div class="support">
+            <button id="helpButton">
+              <i class="fas fa-headset"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="info-section">
+        <div class="info-container">
+          <h2>مرحبًا بك في الإقامة المثالية</h2>
+          <p>
+            تجربة ضيافة عالمية المستوى خلال كأس العالم لكرة القدم 2034 في
+            المملكة العربية السعودية. لقد تعاونا مع أفضل الفنادق والإقامات عبر
+            المملكة لضمان إقامتك مريحة ولا تُنسى.
+          </p>
+          <p>
+            من الفنادق الفاخرة في قلب الرياض إلى الخيارات المريحة قرب الاستادات،
+            اعثر على المكان المثالي الذي يناسب احتياجاتك وميزانيتك.
+          </p>
+
+          <div class="info-highlights">
+            <div class="info-highlight">
+              <i class="fas fa-map-marker-alt"></i>
+              <h3>مواقع استراتيجية</h3>
+              <p>
+                الإقامة بالقرب من الاستادات، مناطق المشجعين والمعالم السياحية
+              </p>
+            </div>
+            <div class="info-highlight">
+              <i class="fas fa-shield-alt"></i>
+              <h3>عقارات مُعتمدة</h3>
+              <p>جميع الإقامات تلبي معايير كأس العالم لكرة القدم™</p>
+            </div>
+            <div class="info-highlight">
+              <i class="fas fa-clock"></i>
+              <h3>حجز مرن</h3>
+              <p>خيارات تعديل وإلغاء سهلة متوفرة</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="accommodations-section">
+        <h2>اعثر على إقامتك المثالية</h2>
+
+        <div class="hotels-grid">
+          <!-- Luxury Hotels -->
+          <div class="hotel-card">
+            <img
+              src="https://lh3.googleusercontent.com/p/AF1QipNwPvD5HD-klpQGuscQBU2j7q1V6yPe2udNngXw=w574-h384-n-k-rw-no-v1"
+              alt="هيلتون الرياض"
+            />
+            <div class="hotel-info">
+              <h3 class="hotel-name">هيلتون الرياض</h3>
+              <div class="hotel-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="amenities">
+                <span class="amenity"
+                  ><i class="fas fa-wifi"></i> واي فاي مجاني</span
+                >
+                <span class="amenity"
+                  ><i class="fas fa-swimming-pool"></i> حمام سباحة</span
+                >
+                <span class="amenity"
+                  ><i class="fas fa-parking"></i> موقف سيارات</span
+                >
+              </div>
+              <div class="hotel-price">من 200 دولار/ليلة</div>
+              <a
+                href="https://www.hilton.com/en/book/reservation/rooms/?ctyhocn=RUHCH&arrivalDate=2024-11-30&departureDate=2024-12-01&room1NumAdults=2&displayCurrency=SAR&WT.mc_id=zINDA0EMEA1HH2OLX3GGL4INTBAU5SR6RUHCHHI7_122953873_9083689&utm_source=intlmeta&utm_medium=intlmeta&utm_campaign=googlehpa&gclid=CjwKCAiAxqC6BhBcEiwAlXp451bl5aHX3wC-LHnnAszLeu0G7RdDlX8FRdGffgZvBM2x-0_5Pe0ZeRoCFjUQAvD_BwE&dsclid=66227509339631616"
+                class="book-btn"
+                >احجز الآن</a
+              >
+            </div>
+          </div>
+
+          <!-- Add more hotel cards following the same pattern -->
+          <div class="hotel-card">
+            <img
+              src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/614223097.jpg?k=c1480719ec15196c0dc1df655c97accbf8370a89c403acc2261b1c6d0ac2b556&o="
+              alt="ريتز كارلتون الرياض"
+            />
+            <div class="hotel-info">
+              <h3 class="hotel-name">ريتز كارلتون الرياض</h3>
+              <div class="hotel-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="amenities">
+                <span class="amenity"
+                  ><i class="fas fa-wifi"></i> واي فاي مجاني</span
+                >
+                <span class="amenity"><i class="fas fa-spa"></i> سبا</span>
+                <span class="amenity"
+                  ><i class="fas fa-utensils"></i> مطعم</span
+                >
+              </div>
+              <div class="hotel-price">من 350 دولار/ليلة</div>
+              <a
+                href="https://www.booking.com/hotel/sa/the-ritz-carlton-riyadh.ar.html?aid=356980&label=gog235jc-1FCAsoxAFCF3RoZS1yaXR6LWNhcmx0b24tcml5YWRoSDNYA2jEAYgBAZgBAbgBF8gBDNgBAegBAfgBDIgCAagCA7gC0_6hugbAAgHSAiQ4YTQ5YjNhMS0zNjU5LTQ2ZGQtYjExMS1jOTFmNzU3NGVjNTjYAgbgAgE&sid=d46b74593e4dfd4bee409f2a53bc99b9&dest_id=900040280&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1732804445&srpvid=79a1666a95660743&type=total&ucfs=1&"
+                class="book-btn"
+                >احجز الآن</a
+              >
+            </div>
+          </div>
+
+          <!-- Add more hotel cards as needed -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2024 كأس العالم والمملكة العربية السعودية. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

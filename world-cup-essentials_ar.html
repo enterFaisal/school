@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>أساسيات كأس العالم</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      /* Page-specific styles here */
+
+      /* Example: Styling for the ticketing section */
+      .ticketing {
+        padding: 40px 20px;
+        background-color: #f8f8f8; /* Light grey background */
+      }
+
+      .ticketing-info {
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center; /* Centered content */
+      }
+
+      /* Add more page-specific styles as needed */
+      /* Match Schedule Styles */
+      .match-schedule {
+        padding: 40px 20px;
+      }
+
+      .match-schedule h2 {
+        color: #e85d8c; /* Or your preferred color */
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .match-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      .match-table th,
+      .match-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border: 1px solid #ddd; /* Light border */
+      }
+
+      .match-table th {
+        background-color: #f5f5f5; /* Light grey background */
+        font-weight: bold;
+      }
+
+      .match-table tbody tr:nth-child(even) {
+        background-color: #f9f9f9; /* Very light grey alternating rows */
+      }
+
+      /* Fan Zone Info Styles */
+      .fan-zone-info {
+        padding: 40px 20px;
+        background-color: #f8f8f8; /* Light grey */
+        text-align: center; /* Center content */
+      }
+
+      .fan-zone-grid {
+        /* Grid container */
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(300px, 1fr)
+        ); /* Responsive columns */
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .fan-zone-card {
+        /* Individual card */
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* Prevents image overflow */
+        padding: 20px;
+      }
+
+      .fan-zone-card img {
+        /* Image within card */
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 15px;
+      }
+
+      .fan-zone-card h3 {
+        color: #e85d8c;
+        margin-bottom: 10px;
+      }
+
+      /* Transportation Styles */
+      .transportation {
+        padding: 40px 20px;
+      }
+
+      .transportation-options {
+        display: flex;
+        flex-wrap: wrap; /* Allows wrapping on smaller screens */
+        justify-content: space-around;
+        gap: 20px;
+      }
+
+      .transport-option {
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        flex: 1 0 250px; /* Responsive width */
+        text-align: center;
+      }
+      .transport-option i {
+        font-size: 3em;
+        color: #e85d8c;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Navigation (same as homepage) -->
+      <nav>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/45/Emblem_of_Saudi_Arabia_%282%29.svg"
+            alt="شعار كرة القدم"
+          />
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="/index_ar.html">الرئيسية</a></li>
+
+          <li>
+            <a href="/world-cup-essentials_ar.html">أساسيات كأس العالم</a>
+          </li>
+          <li><a href="/tourism_ar.html">السياحة</a></li>
+          <li><a href="/stadiums_ar.html">الاستاد</a></li>
+          <li><a href="/accommodations_ar.html">الإقامة</a></li>
+          <li><a href="/services_ar.html">الخدمات القريبة</a></li>
+          <li><a href="/about_ar.html">معلومات عنا</a></li>
+        </ul>
+        <div class="lang-support">
+          <div class="language-selector">
+            <button id="languageBtn">
+              <span>EN</span>
+            </button>
+          </div>
+          <div class="support">
+            <button id="helpButton">
+              <i class="fas fa-headset"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="ticketing">
+        <h2>التذاكر</h2>
+        <div class="ticketing-info">
+          <p>
+            معلومات حول كيفية وأين شراء التذاكر (موقع FIFA، إلخ). روابط إلى
+            منصات التذاكر.
+          </p>
+        </div>
+      </section>
+
+      <section class="transportation">
+        <h2>النقل</h2>
+        <div class="transportation-options">
+          <div class="transport-option">
+            <i class="fas fa-train"></i>
+            <!-- مترو -->
+            <h3>مترو</h3>
+            <p>
+              معلومات عن نظام المترو، الخطوط، المحطات القريبة من الاستادات، إلخ.
+            </p>
+          </div>
+          <div class="transport-option">
+            <i class="fas fa-bus"></i>
+            <!-- حافلة -->
+            <h3>حافلة</h3>
+            <p>
+              معلومات عن خطوط الحافلات، الجداول الزمنية، وخدمات كأس العالم
+              الخاصة.
+            </p>
+          </div>
+          <div class="transport-option">
+            <i class="fas fa-taxi"></i>
+            <!-- مشاركة ركوب -->
+            <h3>مشاركة ركوب</h3>
+            <p>معلومات عن استخدام تطبيقات مشاركة الركوب مثل أوبر أو كريم.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="match-schedule">
+        <h2>جدول المباريات</h2>
+        <table class="match-table">
+          <thead>
+            <tr>
+              <th>التاريخ</th>
+              <th>الفرق</th>
+              <th>المكان</th>
+              <th>الوقت</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20 نوفمبر 2024</td>
+              <td>قطر vs. الإكوادور</td>
+              <td>استاد البيت</td>
+              <td>7:00 م</td>
+            </tr>
+            <tr>
+              <td>21 نوفمبر 2024</td>
+              <td>إنجلترا vs. إيران</td>
+              <td>استاد خليفة الدولي</td>
+              <td>4:00 م</td>
+            </tr>
+            <!-- أضف المزيد من صفوف المباريات هنا -->
+          </tbody>
+        </table>
+      </section>
+
+      <section class="fan-zone-info">
+        <h2>معلومات منطقة المشجعين</h2>
+        <div class="fan-zone-grid"></div>
+      </section>
+    </main>
+
+    <footer>
+      <!-- Footer content (can be same as homepage) -->
+      <p>© 2024 كأس العالم والمملكة العربية السعودية. جميع الحقوق محفوظة.</p>
+    </footer>
+    <script src="script.js"></script>
+    <!-- Include your existing JavaScript -->
+  </body>
+</html>

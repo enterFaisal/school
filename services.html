@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nearby Services</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <style>
+      .services-container {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 20px;
+        padding: 20px;
+        height: calc(100vh - 100px);
+      }
+
+      .filters-panel {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        height: 100%;
+        overflow-y: auto;
+      }
+
+      .category-filters {
+        margin-bottom: 20px;
+      }
+
+      .filter-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        background: #f5f5f5;
+        border-radius: 5px;
+        text-align: left;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .filter-button:hover {
+        background: #e85d8c;
+        color: white;
+      }
+
+      .filter-button.active {
+        background: #e85d8c;
+        color: white;
+      }
+
+      .filter-button i {
+        margin-right: 10px;
+        width: 20px;
+      }
+
+      .map-container {
+        border-radius: 5px;
+        overflow: hidden;
+        height: 100%;
+      }
+
+      #map {
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .results-list {
+        margin-top: 20px;
+      }
+
+      .service-item {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .service-item:hover {
+        background: #f9f9f9;
+      }
+
+      .service-name {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      .service-details {
+        font-size: 0.9em;
+        color: #666;
+      }
+
+      .distance-time {
+        font-size: 0.8em;
+        color: #e85d8c;
+        margin-top: 5px;
+      }
+
+      .search-box {
+        margin-bottom: 20px;
+      }
+
+      .search-box input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .leaflet-popup-content {
+        margin: 10px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/45/Emblem_of_Saudi_Arabia_%282%29.svg"
+            alt="Soccer Ball Logo"
+          />
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="/world-cup-essentials.html">World Cup Essentials</a></li>
+          <li><a href="/tourism.html">Tourism</a></li>
+          <li><a href="/stadiums.html">Stadiums</a></li>
+          <li><a href="/accommodations.html">Accommodations</a></li>
+          <li><a href="/services.html">Nearby Services</a></li>
+          <li><a href="/about.html">About Us</a></li>
+        </ul>
+        <div class="lang-support">
+          <div class="language-selector">
+            <button id="languageBtn">
+              <span>العربية</span>
+            </button>
+          </div>
+          <div class="support">
+            <button id="helpButton">
+              <i class="fas fa-headset"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="services-container">
+        <div class="filters-panel">
+          <div class="search-box">
+            <input
+              type="text"
+              placeholder="Search for services..."
+              id="searchServices"
+            />
+          </div>
+
+          <div class="category-filters">
+            <button class="filter-button active" data-category="all">
+              <i class="fas fa-globe"></i> All Services
+            </button>
+            <button class="filter-button" data-category="restaurants">
+              <i class="fas fa-utensils"></i> Restaurants
+            </button>
+            <button class="filter-button" data-category="hospitals">
+              <i class="fas fa-hospital"></i> Hospitals
+            </button>
+            <button class="filter-button" data-category="pharmacies">
+              <i class="fas fa-pills"></i> Pharmacies
+            </button>
+            <button class="filter-button" data-category="atm">
+              <i class="fas fa-money-bill-wave"></i> ATMs
+            </button>
+            <button class="filter-button" data-category="shopping">
+              <i class="fas fa-shopping-bag"></i> Shopping
+            </button>
+            <button class="filter-button" data-category="mosques">
+              <i class="fas fa-mosque"></i> Mosques
+            </button>
+          </div>
+
+          <div class="results-list" id="servicesList">
+            <!-- Service items will be populated dynamically -->
+          </div>
+        </div>
+
+        <div class="map-container">
+          <div id="map"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2024 World Cup & Saudi Arabia. All rights reserved.</p>
+    </footer>
+
+    <!-- Replace Google Maps script with Leaflet -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script>
+      let map;
+      let markers = [];
+
+      function initMap() {
+        // Center on Riyadh
+        const riyadh = [24.7136, 46.6753];
+
+        map = L.map("map").setView(riyadh, 13);
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap contributors",
+        }).addTo(map);
+
+        // Initial search
+        searchNearbyPlaces("restaurant");
+      }
+
+      function searchNearbyPlaces(type) {
+        clearMarkers();
+
+        const samplePlaces = [
+          // Restaurants
+          {
+            name: "Al Orjouan Restaurant",
+            lat: 24.7136,
+            lng: 46.6753,
+            type: "restaurants",
+            vicinity: "Olaya District, Riyadh",
+          },
+          {
+            name: "Najd Village",
+            lat: 24.7146,
+            lng: 46.6763,
+            type: "restaurants",
+            vicinity: "Takhassusi Street, Riyadh",
+          },
+          {
+            name: "The Globe",
+            lat: 24.7116,
+            lng: 46.6743,
+            type: "restaurants",
+            vicinity: "Al Faisaliah Tower, Riyadh",
+          },
+          {
+            name: "Lusin Restaurant",
+            lat: 24.7156,
+            lng: 46.6773,
+            type: "restaurants",
+            vicinity: "Centria Mall, Riyadh",
+          },
+          {
+            name: "Zafran Indian Restaurant",
+            lat: 24.7126,
+            lng: 46.6733,
+            type: "restaurants",
+            vicinity: "Localizer Mall, Riyadh",
+          },
+
+          // Hospitals
+          {
+            name: "King Faisal Specialist Hospital",
+            lat: 24.6767,
+            lng: 46.6747,
+            type: "hospitals",
+            vicinity: "Takhassusi Road, Riyadh",
+          },
+          {
+            name: "Kingdom Hospital",
+            lat: 24.7427,
+            lng: 46.6873,
+            type: "hospitals",
+            vicinity: "Al Madhar Ash Shamali, Riyadh",
+          },
+          {
+            name: "Saudi German Hospital",
+            lat: 24.7527,
+            lng: 46.6573,
+            type: "hospitals",
+            vicinity: "Al Wurud District, Riyadh",
+          },
+          {
+            name: "Dr. Sulaiman Al Habib Hospital",
+            lat: 24.7627,
+            lng: 46.6673,
+            type: "hospitals",
+            vicinity: "Olaya Street, Riyadh",
+          },
+          {
+            name: "Security Forces Hospital",
+            lat: 24.7327,
+            lng: 46.6973,
+            type: "hospitals",
+            vicinity: "Al Sulaimaniyah, Riyadh",
+          },
+
+          // Pharmacies
+          {
+            name: "Al-Dawaa Pharmacy",
+            lat: 24.7146,
+            lng: 46.6853,
+            type: "pharmacies",
+            vicinity: "King Fahad Road, Riyadh",
+          },
+          {
+            name: "Nahdi Pharmacy",
+            lat: 24.7246,
+            lng: 46.6953,
+            type: "pharmacies",
+            vicinity: "Olaya Street, Riyadh",
+          },
+          {
+            name: "Al-Nahdi Medical",
+            lat: 24.7346,
+            lng: 46.7053,
+            type: "pharmacies",
+            vicinity: "King Abdullah Road, Riyadh",
+          },
+          {
+            name: "Boot's Pharmacy",
+            lat: 24.7446,
+            lng: 46.7153,
+            type: "pharmacies",
+            vicinity: "Takhassusi Street, Riyadh",
+          },
+          {
+            name: "Community Pharmacy",
+            lat: 24.7546,
+            lng: 46.7253,
+            type: "pharmacies",
+            vicinity: "Al Washam District, Riyadh",
+          },
+
+          // ATMs
+          {
+            name: "Al Rajhi Bank ATM",
+            lat: 24.7156,
+            lng: 46.6863,
+            type: "atm",
+            vicinity: "Olaya Street, Riyadh",
+          },
+          {
+            name: "Saudi National Bank ATM",
+            lat: 24.7256,
+            lng: 46.6963,
+            type: "atm",
+            vicinity: "King Fahad Road, Riyadh",
+          },
+          {
+            name: "Riyad Bank ATM",
+            lat: 24.7356,
+            lng: 46.7063,
+            type: "atm",
+            vicinity: "Takhassusi Street, Riyadh",
+          },
+          {
+            name: "Bank Albilad ATM",
+            lat: 24.7456,
+            lng: 46.7163,
+            type: "atm",
+            vicinity: "King Abdullah Road, Riyadh",
+          },
+          {
+            name: "Alinma Bank ATM",
+            lat: 24.7556,
+            lng: 46.7263,
+            type: "atm",
+            vicinity: "Al Olaya District, Riyadh",
+          },
+
+          // Shopping
+          {
+            name: "Kingdom Centre Mall",
+            lat: 24.7116,
+            lng: 46.6843,
+            type: "shopping",
+            vicinity: "Al Olaya District, Riyadh",
+          },
+          {
+            name: "Al Nakheel Mall",
+            lat: 24.7216,
+            lng: 46.6943,
+            type: "shopping",
+            vicinity: "Northern Ring Road, Riyadh",
+          },
+          {
+            name: "Panorama Mall",
+            lat: 24.7316,
+            lng: 46.7043,
+            type: "shopping",
+            vicinity: "Takhassusi Street, Riyadh",
+          },
+          {
+            name: "Hayat Mall",
+            lat: 24.7416,
+            lng: 46.7143,
+            type: "shopping",
+            vicinity: "King Abdulaziz Road, Riyadh",
+          },
+          {
+            name: "Granada Center",
+            lat: 24.7516,
+            lng: 46.7243,
+            type: "shopping",
+            vicinity: "Eastern Ring Road, Riyadh",
+          },
+
+          // Mosques
+          {
+            name: "Al Rajhi Grand Mosque",
+            lat: 24.7126,
+            lng: 46.6833,
+            type: "mosques",
+            vicinity: "Al Olaya District, Riyadh",
+          },
+          {
+            name: "King Khalid Mosque",
+            lat: 24.7226,
+            lng: 46.6933,
+            type: "mosques",
+            vicinity: "Al Wurud District, Riyadh",
+          },
+          {
+            name: "Al-Rajhi Mosque",
+            lat: 24.7326,
+            lng: 46.7033,
+            type: "mosques",
+            vicinity: "Al Mughrizat, Riyadh",
+          },
+          {
+            name: "King Abdullah Mosque",
+            lat: 24.7426,
+            lng: 46.7133,
+            type: "mosques",
+            vicinity: "Al Sahafah District, Riyadh",
+          },
+          {
+            name: "Al-Muhaidib Mosque",
+            lat: 24.7526,
+            lng: 46.7233,
+            type: "mosques",
+            vicinity: "Al Malqa District, Riyadh",
+          },
+        ];
+
+        samplePlaces.forEach((place) => {
+          if (type === "all" || place.type === type) {
+            createMarker(place);
+            addToList(place);
+          }
+        });
+      }
+
+      function createMarker(place) {
+        const marker = L.marker([place.lat, place.lng]).addTo(map);
+        marker.bindPopup(place.name);
+        markers.push(marker);
+      }
+
+      function clearMarkers() {
+        markers.forEach((marker) => map.removeLayer(marker));
+        markers = [];
+        document.getElementById("servicesList").innerHTML = "";
+      }
+
+      function addToList(place) {
+        const list = document.getElementById("servicesList");
+        const item = document.createElement("div");
+        item.className = "service-item";
+        item.innerHTML = `
+          <div class="service-name">${place.name}</div>
+          <div class="service-details">${place.vicinity}</div>
+          <div class="distance-time">500m • 6 min walk</div>
+        `;
+
+        item.addEventListener("click", () => {
+          map.setView([place.lat, place.lng], 15);
+        });
+
+        list.appendChild(item);
+      }
+
+      // Initialize map when the page loads
+      window.onload = initMap;
+
+      // Add event listeners to filter buttons
+      document.querySelectorAll(".filter-button").forEach((button) => {
+        button.addEventListener("click", (e) => {
+          document
+            .querySelector(".filter-button.active")
+            .classList.remove("active");
+          e.target.classList.add("active");
+
+          const category = e.target.dataset.category;
+          searchNearbyPlaces(category);
+        });
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

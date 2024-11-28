@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>معلومات عنا</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .about-section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .about-hero {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .about-hero h1 {
+        color: #e85d8c;
+        margin-bottom: 20px;
+        font-size: 2.5em;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      .about-card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .about-card i {
+        font-size: 2.5em;
+        color: #e85d8c;
+        margin-bottom: 20px;
+      }
+
+      .team-section {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .team-section h2 {
+        color: #e85d8c;
+        margin-bottom: 40px;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .team-member {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .team-member img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        object-fit: cover;
+      }
+
+      .member-name {
+        color: #e85d8c;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .member-role {
+        color: #666;
+        font-size: 0.9em;
+        margin-bottom: 15px;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .social-links a {
+        color: #e85d8c;
+        transition: color 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: #d14776;
+      }
+
+      .contact-section {
+        text-align: center;
+        background: #f8f9fa;
+        padding: 40px;
+        border-radius: 10px;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      .contact-item {
+        padding: 20px;
+      }
+
+      .contact-item i {
+        font-size: 2em;
+        color: #e85d8c;
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/45/Emblem_of_Saudi_Arabia_%282%29.svg"
+            alt="Logo"
+          />
+        </div>
+        <ul class="nav-links">
+          <li><a href="/index_ar.html">الرئيسية</a></li>
+
+          <li>
+            <a href="/world-cup-essentials_ar.html">أساسيات كأس العالم</a>
+          </li>
+          <li><a href="/tourism_ar.html">السياحة</a></li>
+          <li><a href="/stadiums_ar.html" class="active">الاستاد</a></li>
+          <li><a href="/accommodations_ar.html">الإقامة</a></li>
+          <li><a href="/services_ar.html">الخدمات القريبة</a></li>
+          <li><a href="/about_ar.html">معلومات عنا</a></li>
+        </ul>
+        <div class="lang-support">
+          <div class="language-selector">
+            <button id="languageBtn">
+              <span>EN</span>
+            </button>
+          </div>
+          <div class="support">
+            <button id="helpButton">
+              <i class="fas fa-headset"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="about-section">
+        <div class="about-hero">
+          <h1>معلومات عنا</h1>
+          <p>دليلك الموثوق لكأس العالم لكرة القدم 2034 في السعودية</p>
+          <p>
+            نحن ملتزمون بضمان أن يكون لكل زائر تجربة لا تُنسى وسلسة خلال الحدث.
+          </p>
+        </div>
+
+        <div class="about-content">
+          <div class="about-card">
+            <i class="fas fa-bullseye"></i>
+            <h2>مهمتنا</h2>
+            <p>
+              تقديم معلومات شاملة ودقيقة للزوار الحاضرين في كأس العالم لكرة
+              القدم 2034، وضمان تجربة سلسة وممتعة في السعودية.
+            </p>
+          </div>
+          <div class="about-card">
+            <i class="fas fa-eye"></i>
+            <h2>رؤيتنا</h2>
+            <p>
+              أن نكون المنصة الرائدة في ربط الزوار الدوليين بالثقافة الغنية في
+              السعودية ومرافق الرياضة ذات المستوى العالمي.
+            </p>
+          </div>
+          <div class="about-card">
+            <i class="fas fa-heart"></i>
+            <h2>قيمنا</h2>
+            <p>
+              الالتزام بالمصداقية والشفافية والاحترام والتعاون والتميز والابتكار
+              والاستدامة.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2024 كأس العالم والسعودية. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

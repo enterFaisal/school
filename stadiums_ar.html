@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الاستاد</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      /* Stadiums Page Specific Styles */
+      .stadiums-section {
+        padding: 40px 20px;
+        text-align: center; /* Centered by default unless overridden */
+      }
+
+      .stadiums-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .stadium-card {
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .stadium-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .stadium-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: 0 80%; /* Add this line to apply to all images */
+      }
+
+      .stadium-card .card-content {
+        padding: 20px;
+      }
+
+      .stadium-card h3 {
+        color: #e85d8c;
+        margin-bottom: 10px;
+      }
+
+      .stadium-card p {
+        margin-bottom: 15px;
+      }
+
+      .new-indicator {
+        background: #e85d8c;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 3px;
+        font-size: 0.8em;
+        margin-left: 5px;
+      }
+
+      .city-section {
+        margin-bottom: 40px;
+      }
+
+      .city-heading {
+        color: #333;
+        margin-bottom: 20px;
+        text-align: left;
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/45/Emblem_of_Saudi_Arabia_%282%29.svg"
+            alt="شعار كرة القدم"
+          />
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="/index_ar.html">الرئيسية</a></li>
+
+          <li>
+            <a href="/world-cup-essentials_ar.html">أساسيات كأس العالم</a>
+          </li>
+          <li><a href="/tourism_ar.html">السياحة</a></li>
+          <li><a href="/stadiums_ar.html" class="active">الاستاد</a></li>
+          <li><a href="/accommodations_ar.html">الإقامة</a></li>
+          <li><a href="/services_ar.html">الخدمات القريبة</a></li>
+          <li><a href="/about_ar.html">معلومات عنا</a></li>
+        </ul>
+        <div class="lang-support">
+          <div class="language-selector">
+            <button id="languageBtn">
+              <span>EN</span>
+            </button>
+          </div>
+          <div class="support">
+            <button id="helpButton">
+              <i class="fas fa-headset"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="stadiums-section">
+        <h2>ملاعب كأس العالم 2034 في السعودية</h2>
+
+        <!-- ملاعب الرياض -->
+        <div class="city-section">
+          <h2 class="city-heading">الرياض</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/King-Salman-International-Stadium-1-scaled.jpg"
+                alt="استاد الملك سلمان الدولي"
+              />
+              <div class="card-content">
+                <h3>
+                  استاد الملك سلمان الدولي
+                  <span class="new-indicator">جديد</span>
+                </h3>
+                <p>الموقع: الرياض</p>
+                <p>السعة: 92,000</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/King-Fahad-Sports-City-Stadium-1-scaled.jpg"
+                alt="استاد مدينة الملك فهد الرياضية"
+              />
+              <div class="card-content">
+                <h3>استاد مدينة الملك فهد الرياضية</h3>
+                <p>الموقع: الرياض</p>
+                <p>السعة: 70,000</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/South-Riyadh-Stadium-1-scaled.jpeg"
+                alt="استاد جنوب الرياض"
+              />
+              <div class="card-content">
+                <h3>
+                  استاد جنوب الرياض <span class="new-indicator">جديد</span>
+                </h3>
+                <p>الموقع: الرياض</p>
+                <p>السعة: 47,060</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/Prince-Mohammed-bin-Salman-Stadium-1-scaled.jpg"
+                alt="استاد الأمير محمد بن سلمان"
+              />
+              <div class="card-content">
+                <h3>
+                  استاد الأمير محمد بن سلمان
+                  <span class="new-indicator">جديد</span>
+                </h3>
+                <p>الموقع: الرياض</p>
+                <p>السعة: 46,979</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/Prince-Faisal-bin-Fahad-Sports-City-Stadium-1-scaled.jpg"
+                alt="استاد مدينة الأمير فيصل بن فهد الرياضية"
+              />
+              <div class="card-content">
+                <h3>استاد مدينة الأمير فيصل بن فهد الرياضية</h3>
+                <p>الموقع: الرياض</p>
+                <p>السعة: 46,865</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/King-Saud-University-Stadium-1.png"
+                alt="استاد جامعة الملك سعود"
+              />
+              <div class="card-content">
+                <h3>استاد جامعة الملك سعود</h3>
+                <p>الموقع: الرياض</p>
+                <p>السعة: 46,319</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/New-Murabba-Stadium-1-scaled.jpg"
+                alt="استاد المربع الجديد"
+              />
+              <div class="card-content">
+                <h3>
+                  استاد المربع الجديد <span class="new-indicator">جديد</span>
+                </h3>
+                <p>الموقع: الرياض</p>
+                <p>السعة: 46,010</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/ROSHN-Stadium-1-scaled.jpg"
+                alt="استاد روشن"
+              />
+              <div class="card-content">
+                <h3>استاد روشن <span class="new-indicator">جديد</span></h3>
+                <p>الموقع: الرياض</p>
+                <p>السعة: 46,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ملاعب جدة -->
+        <div class="city-section">
+          <h2 class="city-heading">جدة</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/King-Abdullah-Sports-City-Stadium-1-scaled.jpg"
+                alt="استاد مدينة الملك عبدالله الرياضية"
+              />
+              <div class="card-content">
+                <h3>استاد مدينة الملك عبدالله الرياضية</h3>
+                <p>الموقع: جدة</p>
+                <p>السعة: 58,432</p>
+              </div>
+            </div>
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/JCD-1-scaled.jpeg"
+                alt="استاد تطوير جدة المركزي"
+              />
+              <div class="card-content">
+                <h3>
+                  استاد تطوير جدة المركزي
+                  <span class="new-indicator">جديد</span>
+                </h3>
+                <p>الموقع: جدة</p>
+                <p>السعة: 45,794</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- مدن أخرى -->
+        <div class="city-section">
+          <h2 class="city-heading">أبها</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/King-Khalid-University-Stadium-1-scaled.jpeg"
+                alt="استاد جامعة الملك خالد"
+              />
+              <div class="card-content">
+                <h3>
+                  استاد جامعة الملك خالد <span class="new-indicator">جديد</span>
+                </h3>
+                <p>الموقع: أبها</p>
+                <p>السعة: 45,428</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="city-section">
+          <h2 class="city-heading">القدية</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/Qiddiya-Coast-Stadium-1-scaled.jpeg"
+                alt="استاد الساحل"
+              />
+              <div class="card-content">
+                <h3>استاد الساحل <span class="new-indicator">جديد</span></h3>
+                <p>الموقع: القدية</p>
+                <p>السعة: 46,096</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="city-section">
+          <h2 class="city-heading">مدينة الملك عبدالله الاقتصادية</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/King-Abdullah-Economic-City-1-scaled.jpg"
+                alt="استاد مدينة الملك عبدالله الاقتصادية"
+              />
+              <div class="card-content">
+                <h3>
+                  استاد مدينة الملك عبدالله الاقتصادية<span
+                    class="new-indicator"
+                    >جديد</span
+                  >
+                </h3>
+                <p>الموقع: مدينة الملك عبدالله الاقتصادية</p>
+                <p>السعة: 45,700</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="city-section">
+          <h2 class="city-heading">الخبر</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/Aramco-1-scaled.jpg"
+                alt="استاد أرامكو"
+              />
+              <div class="card-content">
+                <h3>استاد أرامكو <span class="new-indicator">جديد</span></h3>
+                <p>الموقع: الخبر</p>
+                <p>السعة: 46,096</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="city-section">
+          <h2 class="city-heading">نيوم</h2>
+          <div class="stadiums-grid">
+            <div class="stadium-card">
+              <img
+                src="https://fifa34wc.oss-me-central-1.aliyuncs.com/wp-content/uploads/2024/07/NEOM-1-scaled.jpg"
+                alt="استاد نيوم"
+              />
+              <div class="card-content">
+                <h3>استاد نيوم <span class="new-indicator">جديد</span></h3>
+                <p>الموقع: نيوم</p>
+                <p>السعة: 46,010</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2024 كأس العالم والسعودية. جميع الحقوق محفوظة.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
