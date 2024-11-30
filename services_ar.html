@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>الخدمات القريبة</title>
+    <title>الموقع والمواصلات</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -125,6 +125,50 @@
         margin: 10px;
         font-size: 14px;
       }
+
+      @media (max-width: 768px) {
+        .services-container {
+          grid-template-columns: 1fr;
+          height: auto;
+        }
+
+        .filters-panel {
+          height: auto;
+          margin-bottom: 20px;
+        }
+
+        .map-container {
+          height: 400px;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background: white;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links li {
+          margin: 0;
+        }
+
+        .nav-links li a {
+          padding: 15px;
+          display: block;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .menu-toggle.active + .nav-links {
+          display: flex;
+        }
+      }
     </style>
   </head>
   <body>
@@ -144,15 +188,15 @@
           <li><a href="/index_ar.html">الرئيسية</a></li>
 
           <li>
-            <a href="/world-cup-essentials_ar.html">أساسيات كأس العالم</a>
+            <a href="/world-cup-essentials_ar.html">المباريات</a>
           </li>
           <li><a href="/tourism_ar.html">السياحة</a></li>
           <li><a href="/stadiums_ar.html">الاستاد</a></li>
-          <li><a href="/accommodations_ar.html">الإقامة</a></li>
+          <li><a href="/accommodations_ar.html">السكن</a></li>
           <li>
-            <a href="/services_ar.html" class="active">الخدمات القريبة</a>
+            <a href="/services_ar.html" class="active">الموقع والمواصلات</a>
           </li>
-          <li><a href="/about_ar.html">معلومات عنا</a></li>
+          <li><a href="/about_ar.html">اتصل بنا</a></li>
         </ul>
         <div class="lang-support">
           <div class="language-selector">
@@ -335,7 +379,7 @@
             lat: 24.7246,
             lng: 46.6953,
             type: "pharmacies",
-            vicinity: "شار�� العليا، الرياض",
+            vicinity: "شارع العليا، الرياض",
           },
           {
             name: "النهدي الطبية",
@@ -523,6 +567,13 @@
           searchNearbyPlaces(category);
         });
       });
+
+      document
+        .getElementById("menuToggle")
+        .addEventListener("click", function () {
+          this.classList.toggle("active");
+          document.querySelector(".nav-links").classList.toggle("active");
+        });
     </script>
     <script src="script.js"></script>
   </body>

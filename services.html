@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nearby Services</title>
+    <title>transportation</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -125,6 +125,50 @@
         margin: 10px;
         font-size: 14px;
       }
+
+      @media (max-width: 768px) {
+        .services-container {
+          grid-template-columns: 1fr;
+          height: auto;
+        }
+
+        .filters-panel {
+          height: auto;
+          margin-bottom: 20px;
+        }
+
+        .map-container {
+          height: 400px;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background: white;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          width: 100%;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links li {
+          margin: 0;
+        }
+
+        .nav-links li a {
+          padding: 15px;
+          display: block;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .menu-toggle.active + .nav-links {
+          display: flex;
+        }
+      }
     </style>
   </head>
   <body>
@@ -141,12 +185,12 @@
         </div>
 
         <ul class="nav-links">
-          <li><a href="/world-cup-essentials.html">World Cup Essentials</a></li>
-          <li><a href="/tourism.html">Tourism</a></li>
+          <li><a href="/world-cup-essentials.html">matches</a></li>
+          <li><a href="/tourism.html">Discover</a></li>
           <li><a href="/stadiums.html">Stadiums</a></li>
           <li><a href="/accommodations.html">Accommodations</a></li>
-          <li><a href="/services.html">Nearby Services</a></li>
-          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/services.html">transportation</a></li>
+          <li><a href="/about.html">contact Us</a></li>
         </ul>
         <div class="lang-support">
           <div class="language-selector">
@@ -517,6 +561,13 @@
           searchNearbyPlaces(category);
         });
       });
+
+      document
+        .getElementById("menuToggle")
+        .addEventListener("click", function () {
+          this.classList.toggle("active");
+          document.querySelector(".nav-links").classList.toggle("active");
+        });
     </script>
     <script src="script.js"></script>
   </body>
