@@ -30,6 +30,22 @@
         text-align: center; /* Centered content */
       }
 
+      .book-ticket-btn {
+        background-color: #e85d8c;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1em;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+      }
+
+      .book-ticket-btn:hover {
+        background-color: #d14b7a;
+      }
+
       /* Add more page-specific styles as needed */
       /* Match Schedule Styles */
       .match-schedule {
@@ -147,15 +163,11 @@
 
         <ul class="nav-links">
           <li><a href="/">Home</a></li>
-          <!-- Change link as needed -->
-          <li>
-            <a href="/world-cup-essentials" class="active">matches</a>
-          </li>
+          <li><a href="/world-cup-essentials.html">matches</a></li>
           <li><a href="/tourism.html">Discover</a></li>
-          <li><a href="/stadiums.html">Stadiums</a></li>
           <li><a href="/accommodations.html">Accommodations</a></li>
           <li><a href="/services.html">transportation</a></li>
-          <li><a href="/about.html">contact Us</a></li>
+          <li><a href="/about.html" class="active">contact Us</a></li>
         </ul>
         <div class="lang-support">
           <div class="language-selector">
@@ -180,38 +192,7 @@
             Information on how and where to purchase tickets (FIFA website,
             etc.). Links to ticketing platforms.
           </p>
-        </div>
-      </section>
-
-      <section class="transportation">
-        <h2>Transportation</h2>
-        <div class="transportation-options">
-          <div class="transport-option">
-            <i class="fas fa-train"></i>
-            <!-- Metro icon -->
-            <h3>Metro</h3>
-            <p>
-              Information about the metro system, lines, stations near stadiums,
-              etc.
-            </p>
-          </div>
-          <div class="transport-option">
-            <i class="fas fa-bus"></i>
-            <!-- Bus icon -->
-            <h3>Bus</h3>
-            <p>
-              Information about bus routes, schedules, and special World Cup
-              services.
-            </p>
-          </div>
-          <div class="transport-option">
-            <i class="fas fa-taxi"></i>
-            <!-- Ride-sharing icon -->
-            <h3>Ride-Sharing</h3>
-            <p>
-              Information about using ride-sharing apps like Uber or Careem.
-            </p>
-          </div>
+          <button class="book-ticket-btn">Book Tickets Now</button>
         </div>
       </section>
 

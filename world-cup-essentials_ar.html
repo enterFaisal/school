@@ -30,6 +30,22 @@
         text-align: center; /* Centered content */
       }
 
+      .book-ticket-btn {
+        background-color: #e85d8c;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1em;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+      }
+
+      .book-ticket-btn:hover {
+        background-color: #d14b7a;
+      }
+
       /* Add more page-specific styles as needed */
       /* Match Schedule Styles */
       .match-schedule {
@@ -151,10 +167,12 @@
           <li>
             <a href="/world-cup-essentials_ar.html">المباريات</a>
           </li>
-          <li><a href="/tourism_ar.html">السياحة</a></li>
-          <li><a href="/stadiums_ar.html">الاستاد</a></li>
+          <li><a href="/tourism_ar.html" class="active">اكتشف</a></li>
+
           <li><a href="/accommodations_ar.html">السكن</a></li>
-          <li><a href="/services_ar.html">الموقع والمواصلات</a></li>
+          <li>
+            <a href="/services_ar.html" class="active">الموقع والمواصلات</a>
+          </li>
           <li><a href="/about_ar.html">اتصل بنا</a></li>
         </ul>
         <div class="lang-support">
@@ -180,35 +198,7 @@
             معلومات حول كيفية وأين شراء التذاكر (موقع FIFA، إلخ). روابط إلى
             منصات التذاكر.
           </p>
-        </div>
-      </section>
-
-      <section class="transportation">
-        <h2>النقل</h2>
-        <div class="transportation-options">
-          <div class="transport-option">
-            <i class="fas fa-train"></i>
-            <!-- مترو -->
-            <h3>مترو</h3>
-            <p>
-              معلومات عن نظام المترو، الخطوط، المحطات القريبة من الاستادات، إلخ.
-            </p>
-          </div>
-          <div class="transport-option">
-            <i class="fas fa-bus"></i>
-            <!-- حافلة -->
-            <h3>حافلة</h3>
-            <p>
-              معلومات عن خطوط الحافلات، الجداول الزمنية، وخدمات كأس العالم
-              الخاصة.
-            </p>
-          </div>
-          <div class="transport-option">
-            <i class="fas fa-taxi"></i>
-            <!-- مشاركة ركوب -->
-            <h3>مشاركة ركوب</h3>
-            <p>معلومات عن استخدام تطبيقات مشاركة الركوب مثل أوبر أو كريم.</p>
-          </div>
+          <button class="book-ticket-btn">احجز تذاكرك الآن</button>
         </div>
       </section>
 
